@@ -2,7 +2,7 @@
 const loadData = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     const data = await response.json();
-    displayData(data);
+    displayData(data.data.tools);
 }
 
 // loading spinner toggle
@@ -23,4 +23,12 @@ const seeAllContainerToggle = (isSee) => {
     }else{
         seeAllContainer.classList.add('hidden');
     }
+}
+
+// details Handler
+const detailsHandler = async (id) => {
+    const response = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
+    const data = await response.json();
+    const details = data.data;
+    displayDetails(details);
 }
