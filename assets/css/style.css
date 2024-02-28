@@ -3,3 +3,9 @@
 * {
     font-family: "Work Sans", sans-serif;
 }
+
+.modal-container {
+    border-radius: 16px;
+    border: 1px solid #EB5757;
+    background: rgba(235, 87, 87, 0.05);
+}
