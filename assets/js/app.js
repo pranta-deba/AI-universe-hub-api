@@ -1,8 +1,18 @@
 //  display data
-const displayData = (data) => {
-  const cardContainer = document.getElementById("cardContainer");
-  data.forEach((items) => {
-    
+const displayData = (data, isShowAll) => {
+
+    if (data.length > 3 && !isShowAll) {
+        seeAllContainerToggle(true);
+    }else{
+        seeAllContainerToggle(false);
+    }
+
+    if (!isShowAll) {        
+        data = data.slice(0,3);
+    }
+
+    const cardContainer = document.getElementById("cardContainer");
+    data.forEach((items) => {
     const div = document.createElement("div");
     div.classList = "card bg-base-100 shadow-xl p-4 border border-2 boder-[#CFCFCF] h-[600px] w-full";
     div.innerHTML = `<figure class="px-8 py-8 bg-[#100F0F0D] min-h-[260px]">
@@ -30,7 +40,7 @@ const displayData = (data) => {
     cardContainer.appendChild(div);
   });
   loadingSpinnerToggle(false);
-  seeAllContainerToggle(true);
+  
 };
 
 // display Details 

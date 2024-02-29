@@ -1,8 +1,8 @@
 // all load data
-const loadData = async () => {
+const loadData = async (isShowAll) => {
     const response = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     const data = await response.json();
-    displayData(data.data.tools);
+    displayData(data.data.tools, isShowAll);
 }
 
 // loading spinner toggle
@@ -32,3 +32,8 @@ const detailsHandler = async (id) => {
     const details = data.data;
     displayDetails(details);
 }
+
+// showAllItems onclick btn
+const showAllItems = () => {
+    loadData(true)
+};
